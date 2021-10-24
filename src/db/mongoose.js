@@ -15,19 +15,19 @@ mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api',{
 // .catch((error)=>{
 // console.log('Error!', error)
 // })
-const Task = mongoose.model('tasks',{
-    description:{
-        type:String,
-        trim:true,
-        required:true,
-    },
-    completed:{
-        type:Boolean,
-        required:false,
-        default:false
-    }
-})
-const task2 = new Task({description:'      cleaning     '})
+// const Task = mongoose.model('tasks',{
+//     description:{
+//         type:String,
+//         trim:true,
+//         required:true,
+//     },
+//     completed:{
+//         type:Boolean,
+//         required:false,
+//         default:false
+//     }
+// })
+// const task2 = new Task({description:'      cleaning     '})
 //
 // task1.save().then(()=>{
 //     console.log(task1)
@@ -41,9 +41,9 @@ const task2 = new Task({description:'      cleaning     '})
 //     console.log(user2)
 // }).catch((error)=>{
 //     console.log(error)
+// // })
+// task2.save().then(()=>{
+//     console.log(task2)
+// }).catch((error)=>{
+//     console.log(error)
 // })
-task2.save().then(()=>{
-    console.log(task2)
-}).catch((error)=>{
-    console.log(error)
-})
