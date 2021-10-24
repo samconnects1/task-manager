@@ -5,7 +5,13 @@ const Task = mongoose.model('tasks',{
     description:{
         type:String,
         trim:true,
-        required: true
+        required: true,
+        validate(value){
+            if(value.length<5){
+                throw new Error('Enter more than 5 charecters')
+            }
+
+    }
     },
     completed:{
         type:Boolean,
