@@ -1,5 +1,6 @@
 require('../src/db/mongoose.js')
 const User = require('../src/models/user')
+const Task = require('../src/models/task')
 
 // User.findByIdAndUpdate('6175e6249351f96c23e512fd',{age:10}).then((user)=>{
 //     console.log(user)
@@ -14,12 +15,12 @@ const updateAgeAndCount = async(id,age)=>{
     const count = await User.countDocuments({age:age})
     return count
 }
-let _id= '6175e6249351f96c23e512fd'
-updateAgeAndCount(_id,30).then((count)=>{
-    console.log(count)
-}).catch((err)=>{
-    console.log(err)
-})
+// let _id= '6175e6249351f96c23e512fd'
+// updateAgeAndCount(_id,30).then((count)=>{
+//     console.log(count)
+// }).catch((err)=>{
+//     console.log(err)
+// })
 
 //
 // const updateAge= (id,age)=> {
@@ -33,3 +34,14 @@ updateAgeAndCount(_id,30).then((count)=>{
 //     })
 // }
 // updateAge('6175e6249351f96c23e512fd',20)
+
+const deleteTasksAndCount = async(id)=>{
+    const task = await Task.findOneAndDelete(id)
+    const count = await Task.countDocuments({completed:false})
+    return count
+}
+deleteTasksAndCount('617602bb3680e428e2dfd1ca').then((count)=>{
+    console.log(count)
+}).catch((err)=>{
+    console.log(err)
+})
